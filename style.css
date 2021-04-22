@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("backgound.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+header {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header h2 {
+    margin: 0;
+    color: #f2f2f2;
+    font-size: 30px;
+}
+
+/*--------------------------- STARTSIDA---------------------------- */
+#container {
+    padding: 50px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: fit-content;
+}
+
+/*------ Inloggningsformulär ------*/
+#loginForm {
+    width: fit-content;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid #404040;
+    border-radius: 3px;
+}
+#loginForm p {
+    margin: 4px 0px;
+    font-size: 15px;
+}
+
+#loginForm button, #signUpForm button {
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: #e6e6e6;
+    border: 1px solid black;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+#errorMessageLogin, #errorMessageSignUp {
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 7px 0px !important; 
+    display: block;
+}
+
+/*------ Registreringformulär ------*/
+#signUpForm {
+    width: 250px;
+    height: 300px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid #404040;
+    border-radius: 3px;
+}
+
+#signUpForm p {
+    margin: 4px 0px;
+    font-size: 15px;
+}
+
+#signUpForm select {
+    padding: 5px;
+}
+
+/*---------------------------- INLOGGAD ANVÄNDARE ----------------------- */
+#containerLoggedIn {
+    flex: none;
+    width: fit-content;
+    height: fit-content;
+}
+
+#containerLoggedIn {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid #404040;
+    border-radius: 3px;
+    padding: 40px;
+}
+
+#containerLoggedIn #btnSignOut{    
+    cursor: pointer;
+    background-color: #e6e6e6;
+    border: 1px solid black;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+#containerLoggedIn #btnSelectChange {
+    margin-top: 20px 0px 0px 10px;
+    cursor: pointer;
+    background-color: #e6e6e6;
+    border: 1px solid black;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+#containerLoggedIn select {
+    padding: 5px;
+    margin-right: 15px;
+}
