@@ -111,7 +111,7 @@ function printStartpage() {
         let checkUser = {userName: userNameLogin, password: passwordLogin};
 
         //Skicka användarens info till back-enden
-        fetch("https://nyhetsbrevet.herokuapp.com/check", { //http://localhost:3000/users/check
+        fetch("https://nyhetsbrevet.herokuapp.com/check", { 
             method: "post",
             headers: {
                 "Content-Type": "application/json",
@@ -124,6 +124,7 @@ function printStartpage() {
             //Svar från back-enden och välja vad som ska göras med den
             if(data.code == "OK") {
                 localStorage.setItem("userId", data.userId);
+                localStorage.setItem("newsletterStatus", data.newsletter);
                 loggedInPage(data);
             }
             else {
@@ -145,7 +146,7 @@ function printStartpage() {
         let newUser = {userName: userNameSignUp, password: passwordSignUp, email: emailSignUp, newsletter: newsletterSelect};
 
         //Skicka användarens info till back-enden
-        fetch("https://nyhetsbrevet.herokuapp.com/new", { //http://localhost:3000/users/new
+        fetch("https://nyhetsbrevet.herokuapp.com/new", {
             method: "post",
             headers: {
                 "Content-Type": "application/json",
@@ -227,15 +228,15 @@ function loggedInPage(data) {
     let btnSelectChangeText = document.createTextNode("Ändra");
     btnSelectChange.appendChild(btnSelectChangeText);
     
-
+    let statusNewsletter = localStorage.getItem("newsletterStatus");
 
     //KOLLAR OM NEWSLETTER ÄR TRUE ELLER FALSE OCH SKRIVER UT FORMULÄR
-    statusContainer.insertAdjacentHTML("beforeend", `<p>${data.newsletter == "true" ? "Du prenumererar just nu på nyhetsbrevet! Du kan ändra nedan om du vill." : "Du prenumererar inte på nyhetsbrevet. Du kan ändra nedan om du vill."}</p><p>Vill du prenumerera på nyhetsbrevet?</p>`);
+    statusContainer.insertAdjacentHTML("beforeend", `<p>${statusNewsletter == "true" ? "Du prenumererar just nu på nyhetsbrevet! Du kan ändra nedan om du vill." : "Du prenumererar inte på nyhetsbrevet. Du kan ändra nedan om du vill."}</p><p>Vill du prenumerera på nyhetsbrevet?</p>`);
     statusContainer.appendChild(selectChange);
     statusContainer.appendChild(btnSelectChange);
 
     //OM KNAPPEN FÖR ATT ÄNDRA SIN PRENUMERATION KLICKAS
-    btnSelectChange.addEventListener("click", function(data) {
+    btnSelectChange.addEventListener("click", function() {
         let newsletterChangeValue = selectChange.value;
 
         let idOfUser = localStorage.getItem("userId");
@@ -243,7 +244,7 @@ function loggedInPage(data) {
         let newsletterChange = {id: idOfUser, newsletter: newsletterChangeValue}
 
         //Skickar användarens id och prenumerationsstatus till back-end
-        fetch("https://nyhetsbrevet.herokuapp.com/change", { //http://localhost:3000/users/change
+        fetch("https://nyhetsbrevet.herokuapp.com/change", {
             method: "post",
             headers: {
                 "Content-Type": "application/json",
@@ -260,6 +261,7 @@ function loggedInPage(data) {
         })
        
     })
+
     
     //OM LOGGA UT-KNAPPEN KLICKAS
     btnSignOut.addEventListener("click", function() {
