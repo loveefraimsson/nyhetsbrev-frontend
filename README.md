@@ -1,12 +1,13 @@
-Länk till back-end för detta repot är:
-https://github.com/loveefraimsson/nyhetsbrev-backend
+## För att köra projektet lokalt:
 
-Detta projektet ligger live och kan testas här:
-https://loveefraimsson.github.io/nyhetsbrev-frontend/
+Klona ner repot för att få frontenden av applikationen. Kör följande kommandon i terminalen:
 
-Data-basen ligger live på Mongo Atlas och kan därmed kommas åt från vilken dator som helst.
+```bash
+ npm install
+ npm start
+```
 
-Om man vill köra projektet från din dator, klona ner detta projektet och kör i en liveserver. Du kan även klona ner back-end-projektet från adressen ovan, följ då även instuktionerna i det projektets README-fil.
+Gör samma sak i projektets backend som du kan ladda ner från länken ovan.
 
 Det finns befintliga användare som man kan testa mot databasen. Några av deras inloggningsuppgifter finns här: 
 
